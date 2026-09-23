@@ -1,0 +1,29 @@
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
+
+environment {
+    QT_QPA_PLATFORM "wayland"
+    DISPLAY null
+}
+
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 48
+
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+overview {
+    zoom 0.5
+    backdrop-color "#262626"
+
+    workspace-shadow {
+        // off
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
