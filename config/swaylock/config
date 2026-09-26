@@ -1,0 +1,31 @@
+#                               __           __  
+#    ______      ______ ___  __/ /___  _____/ /__
+#   / ___/ | /| / / __ `/ / / / / __ \/ ___/ //_/
+#  (__  )| |/ |/ / /_/ / /_/ / / /_/ / /__/ ,<   
+# /____/ |__/|__/\__,_/\__, /_/\____/\___/_/|_|  
+#                     /____/                     
+#
+# By khoatadev
+# ------------------------------------------------
+
+# Option
+image=/home/khoa/Pictures/Wallpapers/dark.png
+scaling=fill
+show-failed-attempts
+hide-keyboard-layout
+disable-caps-lock-text
+
+# Appearance
+font=Comicshannsmono Nerd Font
+font-size=16
+
+#indicator-idle-visible
+indicator-radius=80
+indicator-thickness=10
+#indicator-x-position=
+#indicator-x-position=
+
+#ring-color=#9ca0b0
+#inside-color=#9ca0b0
+
+
