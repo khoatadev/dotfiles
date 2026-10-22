@@ -23,6 +23,13 @@ hl.bind("SUPER + F1", hl.dsp.exec_cmd("playerctl previous"))
 hl.bind("SUPER + F2", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("playerctl play-pause"))
 
+-- screenshot
+hl.bind("SUPER + P", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png"))
+hl.bind(
+	"SUPER + SHIFT + P",
+	hl.dsp.exec_cmd("hyprshot -m active -m output -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png")
+)
+
 -- Close window
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
