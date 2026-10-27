@@ -1,0 +1,126 @@
+// fastfetch config — Tokyo Night theme
+// Palette: bg #1a1b26 | fg #c0caf5 | blue #7aa2f7 | cyan #7dcfff
+//          green #9ece6a | magenta #bb9af7 | red #f7768e | yellow #e0af68
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "auto",
+        // Tô logo Arch theo 2 màu Tokyo Night: blue -> cyan
+        "color": {
+            "1": "38;2;122;162;247",
+            "2": "38;2;125;207;255"
+        },
+        "padding": {
+            "top": 1,
+            "right": 3
+        }
+    },
+    "display": {
+        "separator": "  ",
+        // Màu mặc định: keys màu xanh blue, giá trị màu fg chính
+        "key": {
+            "width": 12
+        },
+        "color": {
+            "keys": "38;2;122;162;247",
+            "title": "38;2;192;202;245"
+        }
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌─────────────── Hardware ───────────────┐"
+        },
+        {
+            "type": "host",
+            "key": "󰌢 Host",
+            "keyColor": "38;2;122;162;247"
+        },
+        {
+            "type": "cpu",
+            "key": "󰻠 CPU",
+            "keyColor": "38;2;122;162;247",
+            "showPeCoreCount": true
+        },
+        {
+            "type": "gpu",
+            "key": "󰢮 GPU",
+            "keyColor": "38;2;122;162;247"
+        },
+        {
+            "type": "memory",
+            "key": "󰍛 Memory",
+            "keyColor": "38;2;122;162;247"
+        },
+        {
+            "type": "disk",
+            "key": "󰋊 Disk",
+            "keyColor": "38;2;122;162;247",
+            "folders": "/"
+        },
+        {
+            "type": "custom",
+            "format": "┼─────────────── Software ───────────────┤"
+        },
+        {
+            "type": "title",
+            "key": "󰀄 User",
+            "format": "{user-name-colored}{at-symbol-colored}{host-name-colored}",
+            "color": {
+                "user": "38;2;158;206;106",
+                "at": "38;2;192;202;245",
+                "host": "38;2;158;206;106"
+            }
+        },
+        {
+            "type": "os",
+            "key": "󰣇 OS",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "kernel",
+            "key": "󰒋 Kernel",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "wm",
+            "key": "󰖙 WM",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "de",
+            "key": "󰧨 DE",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "shell",
+            "key": "󱆃 Shell",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "terminal",
+            "key": "󰄛 Terminal",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "packages",
+            "key": "󰏖 Packages",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "uptime",
+            "key": "󰅐 Uptime",
+            "keyColor": "38;2;187;154;247"
+        },
+        {
+            "type": "custom",
+            "format": "└────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            // Module `colors` chỉ in 16 màu ANSI chuẩn, nên dùng custom để in đúng hex Tokyo Night
+            "type": "custom",
+            "format": " {#38;2;247;118;142}● {#38;2;158;206;106}● {#38;2;224;175;104}● {#38;2;122;162;247}● {#38;2;187;154;247}● {#38;2;125;207;255}● {#38;2;192;202;245}●"
+        }
+    ]
+}
