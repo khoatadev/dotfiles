@@ -1,0 +1,100 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 14,
+    "margin-right": 14,
+    "spacing": 0,
+
+    "modules-left": ["clock", "custom/cava"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/sysmon", "backlight", "pulseaudio", "power-profiles-daemon", "battery"],
+
+    "clock": {
+        "format": "󰥔  {0:%H:%M}  󰃭  {0:%a %d/%m}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#89b4fa'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weekdays": "<span color='#a6e3a1'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "interval": 60
+    },
+
+    "custom/cava": {
+        "exec": "/home/khoa/.config/waybar/cava.sh",
+        "format": "{}"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰮯",
+            "urgent": "󰁃",
+            "default": "󰊠"
+        },
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "sort-by-number": true
+    },
+
+    "custom/sysmon": {
+        "exec": "/home/khoa/.config/waybar/sysmon.py",
+        "return-type": "json",
+        "interval": 3,
+        "format": "{}"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl -q s +5%",
+        "on-scroll-down": "brightnessctl -q s 5%-",
+        "smooth-scrolling-threshold": 1,
+        "interval": 2,
+        "tooltip-format": "Độ sáng màn hình: {percent}%"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pactl set-default-source @DEFAULT_SOURCE@ toggle",
+        "tooltip-format": "Âm lượng: {volume}%"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Chế độ hiệu năng: {profile}",
+        "format-icons": {
+            "default": "󰗑",
+            "performance": "󱐋",
+            "balanced": "󰗑",
+            "power-saver": "󰌪"
+        }
+    },
+
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "interval": 30,
+        "tooltip-format": "{timeTo}",
+        "on-click": "case $(powerprofilesctl get) in performance) powerprofilesctl set power-saver;; power-saver) powerprofilesctl set balanced;; *) powerprofilesctl set performance;; esac"
+    }
+}

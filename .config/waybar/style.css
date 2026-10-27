@@ -1,0 +1,125 @@
+* {
+    font-family: "ComicShannsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(8, 6, 22, 0.85);
+    border-radius: 16px;
+    border: 1px solid rgba(137, 180, 250, 0.15);
+    color: #cdd6f4;
+}
+
+tooltip {
+    background: rgba(8, 6, 22, 0.95);
+    border: 1px solid rgba(137, 180, 250, 0.25);
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* ----- Clock (trái) ----- */
+#clock {
+    background-color: rgba(137, 180, 250, 0.12);
+    color: #cdd6f4;
+    border-radius: 12px;
+    padding: 0 14px;
+    margin: 6px 4px;
+}
+
+/* ----- Cava (cạnh clock) ----- */
+#custom-cava {
+    background-color: rgba(137, 180, 250, 0.10);
+    color: #a6e3a1;
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 6px 4px;
+    min-width: 130px;
+}
+
+/* ----- Workspaces (giữa) ----- */
+#workspaces {
+    background-color: rgba(137, 180, 250, 0.08);
+    border-radius: 12px;
+    padding: 0 6px;
+    margin: 6px 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #6c7086;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+    background-color: rgba(137, 180, 250, 0.18);
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+#workspaces button:hover {
+    color: #cdd6f4;
+    background-color: rgba(137, 180, 250, 0.12);
+}
+
+/* ----- Module bên phải ----- */
+#custom-sysmon,
+#backlight,
+#pulseaudio,
+#power-profiles-daemon,
+#battery {
+    background-color: rgba(137, 180, 250, 0.10);
+    border-radius: 12px;
+    padding: 0 14px;
+    margin: 6px 4px;
+    color: #cdd6f4;
+}
+
+/* Âm lượng */
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+/* Pin: dán pill icon-chế-độ vào pill pin -> nhìn như một module */
+#power-profiles-daemon {
+    margin-right: 0;                        /* dính sát pin */
+    border-radius: 12px 0 0 12px;           /* chỉ bo góc trái */
+    padding-right: 3px;                     /* icon mode cách nhẹ icon pin */
+}
+
+#battery {
+    margin-left: 0;                         /* dính sát icon mode */
+    border-radius: 0 12px 12px 0;           /* chỉ bo góc phải */
+    padding-left: 3px;                      /* icon pin cách nhẹ icon mode */
+}
+
+/* Pin */
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 1s linear infinite alternate;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.3;
+    }
+}
