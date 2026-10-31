@@ -1,5 +1,5 @@
 local Terminal = "kitty"
-local FileManager = "kitty spf"
+local FileManager = "kitty yazi"
 local Browser = "zen"
 local Launcher = "rofi -show drun"
 
@@ -8,6 +8,9 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd(Terminal))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(FileManager))
 hl.bind("SUPER + D", hl.dsp.exec_cmd(Launcher))
 hl.bind("SUPER + Z", hl.dsp.exec_cmd(Browser))
+
+-- Wallpaper picker
+hl.bind("SUPER + W", hl.dsp.exec_cmd("/home/khoa/.config/hypr/scripts/wallpicker.sh"))
 
 -- media
 hl.bind("CTRL + F1", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
@@ -24,17 +27,20 @@ hl.bind("SUPER + F2", hl.dsp.exec_cmd("playerctl next"))
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("playerctl play-pause"))
 
 -- screenshot
-hl.bind("SUPER + P", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png"))
+hl.bind("SUPER + P", hl.dsp.exec_cmd("hyprshot -m region -z -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png"))
 hl.bind(
 	"SUPER + SHIFT + P",
-	hl.dsp.exec_cmd("hyprshot -m active -m output -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png")
+	hl.dsp.exec_cmd("hyprshot -m active -m output -z -o ~/Pictures/Screenshots/ -f $(date +%F_%H-%M-%S).png")
 )
+
+-- Lock screen
+hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- Close window
 hl.bind("SUPER + Q", hl.dsp.window.close())
 
 -- Exit Hyprland
-hl.bind("SUPER + SHIFT_L + Escape", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- Move focus window
 hl.bind("ALT + left", hl.dsp.focus({ direction = "left" }))
@@ -61,6 +67,10 @@ hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" })
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
+-- Float window
+hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
+-- fullscreen
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+
 --hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 --hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only

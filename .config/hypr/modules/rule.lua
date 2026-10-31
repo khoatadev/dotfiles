@@ -23,6 +23,14 @@ hl.window_rule({
 })
 
 -- Layer rules also return a handle.
+-- Fix: góc bo của waybar bị render thành màu đen (vuông) khi workspace
+-- chưa có window — Hyprland coi pixel alpha≈0 là đen. ignore_alpha ép
+-- compositor coi pixel trong suốt là trong suốt thật.
+hl.layer_rule({
+	name = "waybar-fix-corners",
+	match = { namespace = "^waybar$" },
+	ignore_alpha = 0.1,
+})
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
 --     match = { namespace = "^my-overlay$" },
